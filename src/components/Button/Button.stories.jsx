@@ -11,5 +11,12 @@ const Template = (args) => <Button {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  children: 'Connect Wallet'
+  children: 'Connect Wallet',
+  pixel: false
+}
+
+export const Big = Template.bind({})
+Big.args = {
+  children: 'Connect Wallet',
+  pixel: true
 }

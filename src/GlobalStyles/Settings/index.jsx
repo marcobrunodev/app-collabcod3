@@ -1,7 +1,11 @@
 import Colors from './Colors'
+import Cursors from './Cursors'
 
 const Settings = () => (
-  <Colors />
+  <>
+    <Colors />
+    <Cursors />
+  </>
 )
 
 export default Settings
