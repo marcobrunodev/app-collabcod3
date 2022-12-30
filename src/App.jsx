@@ -1,14 +1,9 @@
-import Island from './components/Island'
+import SquareIsland from './components/SquareIsland'
 import World from './components/World'
 
 const App = () => (
   <World>
-    <Island column={2} row={5} />
-    <Island column={10} row={10} />
-    <Island column={10} row={10} />
-    <Island column={10} row={10} />
-    <Island column={10} row={10} />
-    <Island column={10} row={10} />
+    <SquareIsland row={2} column={2} />
   </World>
 )
 

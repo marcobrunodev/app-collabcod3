@@ -1,9 +1,12 @@
 import { createGlobalStyle } from 'styled-components'
-import sea from '../../../assets/plaholder-active/sea.png'
 
 const Base = createGlobalStyle`
   :root {
     font-size: 10px;
+  }
+
+  * {
+    will-change: transform;
   }
 
   html, body, #root {
@@ -14,7 +17,6 @@ const Base = createGlobalStyle`
   body {
     font-family: 'Fira Sans', monospace;
     font-size: 1rem;
-    background-image: url(${sea});
     overflow: hidden;
   }
 `

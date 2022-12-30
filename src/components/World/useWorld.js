@@ -3,8 +3,10 @@ import { useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
 const useWorld = () => {
+  const minZoom = 1
+  const maxZoom = 6
   const [space, setSpace] = useState({ x: 0, y: 0 })
-  const [zoom, setZoom] = useState(1)
+  const [zoom, setZoom] = useState(minZoom)
   const [{ x, y }] = useSpring(() => ({ x: 0, y: 0 }))
 
   const bind = useDrag(({ offset }) => {
@@ -16,8 +18,8 @@ const useWorld = () => {
   const zoomInOut = ({ deltaY }) => {
     setZoom(
       deltaY > 0
-        ? (zoom < 3 && zoom + 0.1) || 3
-        : (zoom > 0.8 && zoom - 0.1) || 0.8)
+        ? (zoom < maxZoom && zoom + 1) || maxZoom
+        : (zoom > minZoom && zoom - 1) || minZoom)
   }
 
   return {

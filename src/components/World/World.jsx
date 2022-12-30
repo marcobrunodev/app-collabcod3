@@ -14,7 +14,10 @@ const World = ({ children, bind, space, onWheel, zoom }) => (
       marginTop: `${space.y < 0 ? space.y : 0}px`,
       marginLeft: `${space.x < 0 ? space.x : 0}px`,
       paddingBottom: `${space.y < 0 ? space.y * -1 : 0}px`,
-      paddingRight: `${space.x < 0 ? space.x * -1 : 0}px`
+      paddingRight: `${space.x < 0 ? space.x * -1 : 0}px`,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
     }}>
       {children}
     </animated.div>
