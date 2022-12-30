@@ -5,10 +5,6 @@ const Base = createGlobalStyle`
     font-size: 10px;
   }
 
-  * {
-    will-change: transform;
-  }
-
   html, body, #root {
     cursor: var(--cursor-auto);
     height: 100%;

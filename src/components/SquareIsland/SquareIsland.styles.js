@@ -8,7 +8,6 @@ const size = (multiply) => multiply && `calc(var(--tile) * ${multiply})`
 const TileFloor = styled(Tile)`
   background: url(${island}) no-repeat;
   background-position: calc(var(--tile) * -1) calc(var(--tile) * -1);
-  image-rendering: pixelated;
 `
 
 const Floor = styled.article`
@@ -19,7 +18,6 @@ const Floor = styled.article`
   height: ${({ row }) => size(row)};
   border-image: url(${islandBorder}) 16 fill / var(--tile) / var(--tile) space;
   border-width: var(--tile);
-  image-rendering: pixelated;
   flex-wrap: wrap;
 `
 
@@ -28,7 +26,6 @@ const SquareIsland = styled.div`
   border: var(--tile) solid transparent;
   justify-content: center;
   align-items: center;
-  image-rendering: pixelated;
 `
 
 export default {
