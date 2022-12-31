@@ -18,7 +18,7 @@ SquareIsland.defaultProps = {
 }
 
 SquareIsland.propTypes = {
-  children: oneOfType[bool, node],
+  children: oneOfType([bool, node]),
   column: number,
   row: number
 }
