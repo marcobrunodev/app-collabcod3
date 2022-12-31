@@ -19,6 +19,7 @@ const SquareHouse = ({ row, column, x, y, center }) => (
     <S.MiddleOfTheRoof column={column}>
       <FactoryTileMiddleOfTheRoof column={column} />
       <S.Chimney />
+      <S.Smoke />
     </S.MiddleOfTheRoof>
   </S.SquareHouse>
 )

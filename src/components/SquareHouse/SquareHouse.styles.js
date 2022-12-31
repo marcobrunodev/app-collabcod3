@@ -3,6 +3,7 @@ import houseBorder from '../../assets/plaholder-active/house-border.png'
 import roofBorder from '../../assets/plaholder-active/roof-border.png'
 import middleRoofBorder from '../../assets/plaholder-active/middle-roof-border.png'
 import house from '../../assets/plaholder-active/house.png'
+import smoke from '../../assets/plaholder-active/smoke.gif'
 import Tile from '../Tile'
 
 const openDoor = keyframes`
@@ -40,6 +41,14 @@ const Door = styled.div`
   background: url(${house}) no-repeat;
   background-position: calc(var(--tile) * -3) 0;
   animation: 500ms steps(3) forwards alternate ${closeDoor};
+`
+
+const Smoke = styled.img.attrs({ src: smoke })`
+  position: absolute;
+  width: var(--tile);
+  height: var(--tile);
+  right: 3.5px;
+  top: -13px;
 `
 
 const Chimney = styled.div`
@@ -132,5 +141,6 @@ export default {
   MiddleOfTheRoof,
   TileMiddleOfTheRoof,
   Door,
-  Chimney
+  Chimney,
+  Smoke
 }
