@@ -11,7 +11,7 @@ const seaAnimation = keyframes`
 `
 
 const World = styled.main`
-  transform-origin: center center;
+  transform-origin: ${({ mousePosition: { x, y } }) => `${x}px ${y}px`};
   transform: scale(${({ zoom }) => zoom});
   transition: 100ms transform linear;
   background-image: url(${watter});

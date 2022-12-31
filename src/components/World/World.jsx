@@ -2,8 +2,8 @@ import { node, func, shape, number } from 'prop-types'
 import { animated } from '@react-spring/web'
 import S from './World.styles'
 
-const World = ({ children, bind, space, onWheel, zoom }) => (
-  <S.World onWheel={onWheel} zoom={zoom}>
+const World = ({ children, bind, space, onWheel, zoom, mousePosition }) => (
+  <S.World onWheel={onWheel} zoom={zoom} mousePosition={mousePosition}>
     <animated.div {...bind()} style={{
       touchAction: 'none',
       position: 'absolute',
@@ -38,6 +38,7 @@ World.propTypes = {
     }
   ).isRequired,
   onWheel: func.isRequired,
+  mousePosition: shape({ x: number, y: number }).isRequired,
   zoom: number
 }
 
