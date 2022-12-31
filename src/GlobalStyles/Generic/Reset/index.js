@@ -8,7 +8,6 @@ const Reset = createGlobalStyle`
 
    * {
     image-rendering: pixelated;
-    will-change: transform;
    }
 
   html, body, div, span, applet, object, iframe,
