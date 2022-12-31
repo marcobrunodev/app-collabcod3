@@ -36,6 +36,7 @@ const hasCenter = ({ center }) => center && css`
 const Door = styled.div`
   position: absolute;
   bottom: calc(var(--tile) * -1);
+  left: calc(var(--tile));
   width: var(--tile);
   height: var(--tile);
   background: url(${house}) no-repeat;
