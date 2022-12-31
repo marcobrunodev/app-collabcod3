@@ -10,7 +10,7 @@ const TileFloor = styled(Tile)`
   background-position: calc(var(--tile) * -1) calc(var(--tile) * -1);
 `
 
-const Floor = styled.article`
+const Floor = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,13 +19,12 @@ const Floor = styled.article`
   border-image: url(${islandBorder}) 16 fill / var(--tile) / var(--tile) space;
   border-width: var(--tile);
   flex-wrap: wrap;
+  position: relative;
 `
 
-const SquareIsland = styled.div`
+const SquareIsland = styled.article`
   display: inline-flex;
   border: var(--tile) solid transparent;
-  justify-content: center;
-  align-items: center;
   will-change: transform;
 `
 
