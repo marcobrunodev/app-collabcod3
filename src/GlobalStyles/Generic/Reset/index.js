@@ -1,4 +1,10 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
+
+const hasChrome = ({ isChrome }) => isChrome && css`
+  * {
+    will-change: transform;
+  }
+`
 
 const Reset = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -6,9 +12,13 @@ const Reset = createGlobalStyle`
    License: none (public domain)
   */
 
-   * {
+  ${hasChrome}
+
+  * {
     image-rendering: pixelated;
-   }
+  }
+
+
 
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,

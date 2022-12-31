@@ -17,6 +17,7 @@ const World = styled.main`
   background-image: url(${watter});
   height: 100%;
   animation: 1s steps(4) infinite alternate ${seaAnimation};
+  will-change: transform;
 `
 
 export default {

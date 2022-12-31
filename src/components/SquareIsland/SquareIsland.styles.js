@@ -26,6 +26,7 @@ const SquareIsland = styled.div`
   border: var(--tile) solid transparent;
   justify-content: center;
   align-items: center;
+  will-change: transform;
 `
 
 export default {
