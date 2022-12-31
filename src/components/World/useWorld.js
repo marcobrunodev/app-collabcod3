@@ -18,7 +18,7 @@ const useWorld = () => {
 
   const zoomInOut = (prosp) => {
     const { deltaY, clientX, clientY } = prosp
-    if (zoom < maxZoom && deltaY > 0) { setMousePosition({ x: clientX, y: clientY }) }
+    if (zoom < maxZoom && deltaY > 0) { setMousePosition({ x: clientX - space.x, y: clientY - space.y }) }
 
     setZoom(
       deltaY > 0
