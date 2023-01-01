@@ -1,16 +1,16 @@
-import { bool, number } from 'prop-types'
+import { oneOfType, bool, number } from 'prop-types'
 import FactoryTiteFloor from './FactoryTileFloor'
 import FactoryTileMiddleOfTheRoof from './FactoryTileMiddleOfTheRoof'
 import FactoryTiteRoof from './FactoryTileRoof'
 import S from './SquareHouse.styles'
 
-const SquareHouse = ({ row, column, x, y, center }) => (
+const SquareHouse = ({ row, column, x, y, center, positionDoor }) => (
   <S.SquareHouse x={x} y={y} center={center}>
     <S.Floor row={row} column={column}>
       <FactoryTiteFloor row={row} column={column} />
     </S.Floor>
 
-    <S.Door />
+    <S.Door positionDoor={positionDoor} />
 
     <S.Roof row={row + 1} column={column}>
       <FactoryTiteRoof row={row + 1} column={column} />
@@ -27,7 +27,8 @@ const SquareHouse = ({ row, column, x, y, center }) => (
 SquareHouse.defaultProps = {
   x: 0,
   y: 0,
-  center: false
+  center: false,
+  positionDoor: false
 }
 
 SquareHouse.propTypes = {
@@ -35,7 +36,8 @@ SquareHouse.propTypes = {
   column: number.isRequired,
   x: number,
   y: number,
-  center: bool
+  center: bool,
+  positionDoor: oneOfType([number, bool])
 }
 
 export default SquareHouse

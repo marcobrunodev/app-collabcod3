@@ -33,15 +33,21 @@ const hasCenter = ({ center }) => center && css`
   transform: translate(-50%, -50%);
 `
 
+const hasPositionDoor = ({ positionDoor }) => positionDoor >= 0 && css`
+  left: calc(var(--tile) * ${positionDoor});
+`
+
 const Door = styled.div`
   position: absolute;
   bottom: calc(var(--tile) * -1);
-  left: calc(var(--tile));
+  left: var(--tile);
   width: var(--tile);
   height: var(--tile);
   background: url(${house}) no-repeat;
   background-position: calc(var(--tile) * -3) 0;
   animation: 500ms steps(3) forwards alternate ${closeDoor};
+
+  ${hasPositionDoor}
 `
 
 const Smoke = styled.img.attrs({ src: smoke })`
