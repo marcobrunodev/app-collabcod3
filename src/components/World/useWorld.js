@@ -7,7 +7,6 @@ const useWorld = () => {
   const maxZoom = 3
   const [space, setSpace] = useState({ x: 0, y: 0 })
   const [zoom, setZoom] = useState(minZoom)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [{ x, y }] = useSpring(() => ({ x: 0, y: 0 }))
 
   const bind = useDrag(({ offset }) => {
@@ -16,10 +15,7 @@ const useWorld = () => {
     setSpace({ x: offset[0], y: offset[1] })
   })
 
-  const zoomInOut = (prosp) => {
-    const { deltaY, clientX, clientY } = prosp
-    if (zoom < maxZoom && deltaY > 0) { setMousePosition({ x: clientX - space.x, y: clientY - space.y }) }
-
+  const zoomInOut = ({ deltaY }) => {
     setZoom(
       deltaY > 0
         ? (zoom < maxZoom && zoom + 1) || maxZoom
@@ -30,8 +26,7 @@ const useWorld = () => {
     bind,
     space,
     zoom,
-    zoomInOut,
-    mousePosition
+    zoomInOut
   }
 }
 

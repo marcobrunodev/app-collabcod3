@@ -125,6 +125,7 @@ const SquareHouse = styled.article`
   top: calc(var(--tile) * ${({ y }) => y});
   left: calc(var(--tile) * ${({ x }) => x});
   will-change: transform;
+  cursor: var(--cursor-pointer);
 
   &:hover {
     & > ${Roof}, & > ${MiddleOfTheRoof} {
