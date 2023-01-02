@@ -5,7 +5,7 @@ import pointer from '../../../assets/plaholder-active/cursors/pointer.png'
 const Cursors = createGlobalStyle`
   :root {
     --cursor-auto: url(${auto}), auto;
-    --cursor-pointer: url(${pointer}) 14 0,pointer;
+    --cursor-pointer: url(${pointer}) 0 0, pointer;
   }
 `
 

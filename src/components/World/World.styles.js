@@ -10,14 +10,29 @@ const seaAnimation = keyframes`
   }
 `
 
-const World = styled.main`
-  transition: 100ms transform linear;
+const Menu = styled.nav`
+  position: fixed;
+  bottom: var(--tile);
+  right: var(--tile);
+`
+
+const Camera = styled.div`
+  transform: scale(${({ zoom }) => zoom});
+  transition: 500ms transform linear;
+  filter: blur(${({ blur }) => `${blur}px`});
   background-image: url(${watter});
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   animation: 1s steps(4) infinite alternate ${seaAnimation};
   will-change: transform;
 `
 
+const World = styled.main`
+  position: relative;
+`
+
 export default {
-  World
+  World,
+  Camera,
+  Menu
 }
