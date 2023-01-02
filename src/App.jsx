@@ -8,7 +8,7 @@ const App = () => (
     <SquareIsland row={10} column={20}>
       <SquareHouse row={4} column={8} x={5} y={1} positionDoor={1} />
 
-      <Cat x={6} y={6.5} />
+      <Cat x={5} y={5.6} />
     </SquareIsland>
   </World>
 )
