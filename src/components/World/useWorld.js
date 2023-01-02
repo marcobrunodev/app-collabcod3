@@ -7,8 +7,9 @@ const useWorld = () => {
   const maxZoom = 3
   const applyZoom = 1
   const applyBlur = 0.6
+  const zoomStorage = Number(localStorage.getItem('zoom'))
   const [space, setSpace] = useState({ x: 0, y: 0 })
-  const [zoom, setZoom] = useState(minZoom)
+  const [zoom, setZoom] = useState(zoomStorage || minZoom)
   const [blur, setBlur] = useState(0)
   const [{ x, y }] = useSpring(() => ({ x: 0, y: 0 }))
 
@@ -20,14 +21,25 @@ const useWorld = () => {
 
   const zoomIn = () => {
     if (zoom < maxZoom) {
-      setZoom(zoom + applyZoom)
+      setZoom(() => {
+        const newZoom = zoom + applyZoom
+        localStorage.setItem('zoom', newZoom)
+
+        return newZoom
+      })
       setBlur(applyBlur)
+      localStorage.setItem('zoom', zoom)
     }
   }
 
   const zoomOut = () => {
     if (zoom > minZoom) {
-      setZoom(zoom - applyZoom)
+      setZoom(() => {
+        const newZoom = zoom - applyZoom
+        localStorage.setItem('zoom', newZoom)
+
+        return newZoom
+      })
       setBlur(applyBlur)
     }
   }
