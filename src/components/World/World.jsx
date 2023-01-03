@@ -2,6 +2,7 @@ import { node, func, shape, number } from 'prop-types'
 import { animated } from '@react-spring/web'
 import S from './World.styles'
 import IconButton from '../IconButton'
+import Chat from '../../layouts/Chat'
 
 const World = ({ children, bind, space, zoom, zoomIn, zoomOut, blur, onTransitionEnd }) => (
   <S.World>
@@ -11,12 +12,12 @@ const World = ({ children, bind, space, zoom, zoomIn, zoomOut, blur, onTransitio
         position: 'absolute',
         width: '100vw',
         height: '100vh',
-        paddingTop: `${space.y > 0 ? space.y / zoom : 0}px`,
-        paddingLeft: `${space.x > 0 ? space.x / zoom : 0}px`,
-        marginTop: `${space.y < 0 ? space.y / zoom : 0}px`,
-        marginLeft: `${space.x < 0 ? space.x / zoom : 0}px`,
-        paddingBottom: `${space.y < 0 ? (space.y / zoom * -1) : 0}px`,
-        paddingRight: `${space.x < 0 ? (space.x / zoom * -1) : 0}px`,
+        paddingTop: `${space.y > 0 ? space.y : 0}px`,
+        paddingLeft: `${space.x > 0 ? space.x : 0}px`,
+        marginTop: `${space.y < 0 ? space.y : 0}px`,
+        marginLeft: `${space.x < 0 ? space.x : 0}px`,
+        paddingBottom: `${space.y < 0 ? (space.y * -1) : 0}px`,
+        paddingRight: `${space.x < 0 ? (space.x * -1) : 0}px`,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'
@@ -29,6 +30,8 @@ const World = ({ children, bind, space, zoom, zoomIn, zoomOut, blur, onTransitio
       <IconButton whatIcon="plus" onClick={zoomIn} />
       <IconButton whatIcon="less" onClick={zoomOut} />
     </S.Menu>
+
+    <Chat />
   </S.World>
 )
 

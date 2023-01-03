@@ -18,8 +18,6 @@ const Reset = createGlobalStyle`
     image-rendering: pixelated;
   }
 
-
-
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -65,6 +63,13 @@ const Reset = createGlobalStyle`
   }
   button {
     border: none;
+  }
+
+  input {
+    border: none;
+  }
+  input:focus {
+    outline: none;
   }
 `
 

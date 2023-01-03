@@ -13,6 +13,9 @@ const Colors = createGlobalStyle`
     --color-error: #BA1F33;
     --color-warning: #CEB02A;
     --color-success: #62C370;
+
+    --color-text-input: #f3e5c2;
+    --color-text-input-focus: #6b4b5b;
   }
 `
 
