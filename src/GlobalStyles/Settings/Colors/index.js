@@ -16,6 +16,10 @@ const Colors = createGlobalStyle`
 
     --color-text-input: #f3e5c2;
     --color-text-input-focus: #6b4b5b;
+
+    --color-inputs: #6b4b5b;
+    --color-background: #dcb98a;
+    --color-border: #645552;
   }
 `
 
