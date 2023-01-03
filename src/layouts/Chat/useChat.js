@@ -1,9 +1,17 @@
 import { useState } from 'react'
 
 const useChat = () => {
-  const [open, setOpen] = useState(false)
+  const storageOpen = !!localStorage.getItem('chatOpen')
+  const [open, setOpen] = useState(storageOpen)
 
-  const toggle = () => setOpen(!open)
+  const toggle = () => {
+    setOpen(() => {
+      const newOpen = !open
+      console.log(newOpen)
+      localStorage.setItem('chatOpen', newOpen)
+      return newOpen
+    })
+  }
 
   return {
     open,

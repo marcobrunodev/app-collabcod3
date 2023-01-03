@@ -19,6 +19,7 @@ const Colors = createGlobalStyle`
 
     --color-inputs: #6b4b5b;
     --color-background: #dcb98a;
+    --color-light-background: #e8cfa6;
     --color-border: #645552;
   }
 `

@@ -3,8 +3,8 @@ import { useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
 const useWorld = () => {
-  const minZoom = 1
-  const maxZoom = 3
+  const minZoom = 2
+  const maxZoom = 4
   const applyZoom = 1
   const applyBlur = 0.6
   const zoomStorage = Number(localStorage.getItem('zoom'))
