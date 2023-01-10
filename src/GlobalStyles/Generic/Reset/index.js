@@ -2,7 +2,10 @@ import { createGlobalStyle, css } from 'styled-components'
 
 const hasChrome = ({ isChrome }) => isChrome && css`
   * {
-    will-change: transform;
+    will-change: transform, border-image, background-image;
+  }
+  .chromeWhitoutAnimation {
+    animation: none !important;
   }
 `
 

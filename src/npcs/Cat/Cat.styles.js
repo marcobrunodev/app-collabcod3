@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import cat from '../../assets/plaholder-active/cat.png'
 
 const idle = keyframes`
@@ -10,6 +10,12 @@ const idle = keyframes`
   }  
 `
 
+const hasCenter = ({ center }) => center && css`
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`
+
 const Cat = styled.div`
   position: absolute;
   top: calc(${({ y }) => `var(--tile) * ${y}`});
@@ -18,6 +24,8 @@ const Cat = styled.div`
   height: var(--tile-npc);
   background: url(${cat}) no-repeat;
   animation: 1s steps(7) infinite ${idle};
+
+  ${hasCenter}
 `
 
 export default Cat

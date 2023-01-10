@@ -7,13 +7,13 @@ const Base = createGlobalStyle`
 
   html, body, #root {
     cursor: var(--cursor-auto);
-    height: 100%;
+    height: 100vh;
+    overflow: hidden;
   }
 
   body {
-    font-family: 'Fira Sans', monospace;
+    font-family: 'Press Start 2P', sans-serif;
     font-size: 1rem;
-    overflow: hidden;
   }
 `
 

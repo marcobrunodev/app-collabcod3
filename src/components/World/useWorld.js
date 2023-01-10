@@ -3,13 +3,14 @@ import { useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
 const useWorld = () => {
-  const minZoom = 2
+  const zoomStorage = Number(localStorage.getItem('zoom'))
+  const defaultZoom = zoomStorage || 2
+  const minZoom = 1
   const maxZoom = 4
   const applyZoom = 1
   const applyBlur = 0.6
-  const zoomStorage = Number(localStorage.getItem('zoom'))
   const [space, setSpace] = useState({ x: 0, y: 0 })
-  const [zoom, setZoom] = useState(zoomStorage || minZoom)
+  const [zoom, setZoom] = useState(defaultZoom)
   const [blur, setBlur] = useState(0)
   const [{ x, y }] = useSpring(() => ({ x: 0, y: 0 }))
 
@@ -21,21 +22,20 @@ const useWorld = () => {
 
   const zoomIn = () => {
     if (zoom < maxZoom) {
-      setZoom(() => {
-        const newZoom = zoom + applyZoom
+      setZoom((oldZoom) => {
+        const newZoom = oldZoom + applyZoom
         localStorage.setItem('zoom', newZoom)
 
         return newZoom
       })
       setBlur(applyBlur)
-      localStorage.setItem('zoom', zoom)
     }
   }
 
   const zoomOut = () => {
     if (zoom > minZoom) {
-      setZoom(() => {
-        const newZoom = zoom - applyZoom
+      setZoom((oldZoom) => {
+        const newZoom = oldZoom - applyZoom
         localStorage.setItem('zoom', newZoom)
 
         return newZoom

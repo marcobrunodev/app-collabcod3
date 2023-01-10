@@ -1,21 +1,33 @@
 import { useState } from 'react'
 
 const useChat = () => {
-  const storageOpen = !!localStorage.getItem('chatOpen')
+  const storageOpen = localStorage.getItem('chatOpen') === 'true'
   const [open, setOpen] = useState(storageOpen)
+  const [scroll, setScroll] = useState(1)
 
   const toggle = () => {
-    setOpen(() => {
-      const newOpen = !open
-      console.log(newOpen)
+    setOpen((oldOpen) => {
+      const newOpen = !oldOpen
       localStorage.setItem('chatOpen', newOpen)
+
       return newOpen
     })
   }
 
+  const handleScroll = ({ target }) => {
+    const currentPositionScroll = target.scrollTop
+    const allHeight = target.scrollHeight
+    const showHeight = target.offsetHeight
+    const heightScroll = allHeight - showHeight
+
+    setScroll(currentPositionScroll / heightScroll)
+  }
+
   return {
     open,
-    toggle
+    toggle,
+    handleScroll,
+    scroll
   }
 }
 

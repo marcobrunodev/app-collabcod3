@@ -2,9 +2,9 @@ import { bool, node, number, oneOfType } from 'prop-types'
 import FactoryTiteFloor from './FactoryTileFloor'
 import S from './SquareIsland.styles'
 
-const SquareIsland = ({ column, row, children }) => (
-  <S.SquareIsland>
-    <S.Floor column={column} row={row}>
+const SquareIsland = ({ column, row, children, removeAnimations }) => (
+  <S.SquareIsland removeAnimations={removeAnimations}>
+    <S.Floor className="chromeWhitoutAnimation" column={column} row={row}>
       <FactoryTiteFloor column={column} row={row} />
     </S.Floor>
     {children}
@@ -14,13 +14,15 @@ const SquareIsland = ({ column, row, children }) => (
 SquareIsland.defaultProps = {
   children: false,
   column: 2,
-  row: 2
+  row: 2,
+  removeAnimations: false
 }
 
 SquareIsland.propTypes = {
   children: oneOfType([bool, node]),
   column: number,
-  row: number
+  row: number,
+  removeAnimations: bool
 }
 
 export default SquareIsland

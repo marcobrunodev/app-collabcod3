@@ -6,7 +6,7 @@ import Chat from '../../layouts/Chat'
 
 const World = ({ children, bind, space, zoom, zoomIn, zoomOut, blur, onTransitionEnd }) => (
   <S.World>
-    <S.Camera zoom={zoom} blur={blur} onTransitionEnd={onTransitionEnd}>
+    <S.Camera className="chromeWhitoutAnimation" zoom={zoom} blur={blur} onTransitionEnd={onTransitionEnd}>
       <animated.div {...bind()} style={{
         touchAction: 'none',
         position: 'absolute',

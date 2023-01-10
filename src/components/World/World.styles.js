@@ -1,29 +1,31 @@
-import styled, { keyframes } from 'styled-components'
-import watter from '../../assets/plaholder-active/water.png'
+import styled, { css, keyframes } from 'styled-components'
+import water0 from '../../assets/plaholder-active/water/water0.png'
+import waterSheet from './waterSheet'
+
+const steps = () => waterSheet.map((waterSheet, index) => css`${4.54 * index}% {
+  background-image: url(${waterSheet});
+}`)
 
 const seaAnimation = keyframes`
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 2px 0;
-  }
+  ${steps()}
 `
 
 const Menu = styled.nav`
-  position: fixed;
+  position: sticky;
+  padding: 0 var(--tile);
   bottom: var(--tile);
-  right: var(--tile);
+  display: flex;
+  justify-content: flex-end;
 `
 
 const Camera = styled.div`
   transform: scale(${({ zoom }) => zoom});
   transition: 500ms transform linear;
   filter: blur(${({ blur }) => `${blur}px`});
-  background-image: url(${watter});
+  background-image: url(${water0});
   width: 100vw;
   height: 100vh;
-  animation: 1s steps(4) infinite alternate ${seaAnimation};
+  animation: 3.5s linear infinite alternate ${seaAnimation};
   will-change: transform;
 `
 
