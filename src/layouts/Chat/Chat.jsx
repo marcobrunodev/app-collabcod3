@@ -1,4 +1,3 @@
-import { bool, func, number } from 'prop-types'
 import ArrowOpenClose from '../../components/ArrowOpenClose'
 import Button from '../../components/Button'
 import InputText from '../../components/InputText'
@@ -6,19 +5,20 @@ import S from './Chat.styles'
 import avatar from '../../assets/plaholder-active/avatar.png'
 import ChatMessage from '../ChatMessage'
 import Title from '../../components/Title'
+import { forwardRef } from 'react'
 
-const Chat = ({ isOpen, handleToggle, handleScroll, scroll }) => (
-  <S.Chat isOpen={isOpen}>
+const Chat = forwardRef((props, ref) => (
+  <S.Chat isOpen={props.isOpen}>
     <S.Header>
       <Title>FrontEnd</Title>
 
-      <S.WrapperOpenClose isOpen={isOpen}>
-        <ArrowOpenClose isOpen={isOpen} onClick={handleToggle} />
+      <S.WrapperOpenClose isOpen={props.isOpen}>
+        <ArrowOpenClose isOpen={props.isOpen} onClick={props.handleToggle} />
       </S.WrapperOpenClose>
     </S.Header>
 
     <S.Messages>
-      <S.Contents onScroll={handleScroll}>
+      <S.Contents onScroll={props.handleScroll} ref={ref}>
         <ChatMessage avatar={avatar}>
           Hi, I'm a chat bubble  Hi, I'm a chat bubble  Hi, I'm a chat bubble
         </ChatMessage>
@@ -57,7 +57,7 @@ const Chat = ({ isOpen, handleToggle, handleScroll, scroll }) => (
         </ChatMessage>
       </S.Contents>
       <S.WrapperScroll>
-        <S.Scroll scroll={scroll} />
+        <S.Scroll scroll={props.scroll} />
       </S.WrapperScroll>
     </S.Messages>
 
@@ -67,13 +67,6 @@ const Chat = ({ isOpen, handleToggle, handleScroll, scroll }) => (
       <Button>Chat</Button>
     </S.Form>
   </S.Chat>
-)
-
-Chat.propTypes = {
-  isOpen: bool.isRequired,
-  handleToggle: func.isRequired,
-  handleScroll: func.isRequired,
-  scroll: number.isRequired
-}
+))
 
 export default Chat
