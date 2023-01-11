@@ -12,8 +12,6 @@ const useChat = () => {
       const showHeight = chatElement.current.offsetHeight
       const heightScroll = allHeight - showHeight
 
-      console.log('currentPositionScroll / heightScroll', heightScroll)
-
       chatElement.current.scrollTo(0, heightScroll)
     }
   }, [])

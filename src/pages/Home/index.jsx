@@ -1,3 +1,4 @@
+import Player from '../../components/Player'
 import SquareHouse from '../../components/SquareHouse'
 import SquareIsland from '../../components/SquareIsland'
 import World from '../../components/World'
@@ -11,6 +12,9 @@ const Home = () => (
       <Cat x={5} y={5.6} />
 
       <Cat x={17.5} y={8} />
+
+      <Player x={4} y={6}/>
+      <Player x={2} y={6}/>
     </SquareIsland>
   </World>
 )

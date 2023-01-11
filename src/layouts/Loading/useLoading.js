@@ -8,7 +8,6 @@ const useLoading = () => {
     document.addEventListener('visibilitychange', () => {
       setVisibility(true)
       setStatus(true)
-      console.log('enter here visibilitychange')
     })
   }, [])
 
