@@ -4,6 +4,7 @@ import gueio from '../../assets/images/gueio.png'
 const idle = keyframes`
   from {
     background-position: 0 0;
+    /* backround-position: x */
   }
   to {
     background-position: calc(var(--tile-width) * -4) 0;

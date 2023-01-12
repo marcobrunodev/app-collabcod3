@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite & swa start http://localhost:5173 --api-location ./api",
     "build": "vite build",
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",

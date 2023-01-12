@@ -37,19 +37,6 @@ const hasPositionDoor = ({ positionDoor }) => positionDoor >= 0 && css`
   left: calc(var(--tile) * ${positionDoor});
 `
 
-const Door = styled.div`
-  position: absolute;
-  bottom: calc(var(--tile) * -1);
-  left: var(--tile);
-  width: var(--tile);
-  height: var(--tile);
-  background: url(${house}) no-repeat;
-  background-position: calc(var(--tile) * -3) 0;
-  animation: 500ms steps(3) forwards alternate ${closeDoor};
-
-  ${hasPositionDoor}
-`
-
 const Smoke = styled.img.attrs({ src: smoke })`
   position: absolute;
   width: var(--tile);
@@ -116,6 +103,20 @@ const Floor = styled.div`
   height: ${({ row }) => size(row)};
   border-image: url(${houseBorder}) 16 fill / var(--tile) / var(--tile) space;
   border-width: var(--tile);
+  position: relative;
+`
+
+const Door = styled.div`
+  position: absolute;
+  bottom: calc(var(--tile) * -1);
+  left: var(--tile);
+  width: var(--tile);
+  height: var(--tile);
+  background: url(${house}) no-repeat;
+  background-position: calc(var(--tile) * -3) 0;
+  animation: 500ms steps(3) forwards alternate ${closeDoor};
+
+  ${hasPositionDoor};
 `
 
 const SquareHouse = styled.article`
@@ -137,7 +138,7 @@ const SquareHouse = styled.article`
     }
   }
 
-  ${hasCenter}
+  ${hasCenter};
 `
 
 export default {

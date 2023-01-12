@@ -1,11 +1,11 @@
 import { bool, node, number, oneOfType } from 'prop-types'
-import FactoryTiteFloor from './FactoryTileFloor'
+import FactoryTileFloor from './FactoryTileFloor'
 import S from './SquareIsland.styles'
 
 const SquareIsland = ({ column, row, children, removeAnimations }) => (
   <S.SquareIsland removeAnimations={removeAnimations}>
     <S.Floor className="chromeWhitoutAnimation" column={column} row={row}>
-      <FactoryTiteFloor column={column} row={row} />
+      <FactoryTileFloor column={column} row={row} />
     </S.Floor>
     {children}
   </S.SquareIsland>
