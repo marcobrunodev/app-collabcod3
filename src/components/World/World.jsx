@@ -3,6 +3,8 @@ import { animated } from '@react-spring/web'
 import S from './World.styles'
 import IconButton from '../IconButton'
 import Chat from '../../layouts/Chat'
+import Avatar from '../Avatar'
+import avatar from '../../assets/plaholder-active/avatar.png'
 
 const World = ({ children, bind, space, zoom, zoomIn, zoomOut, blur, onTransitionEnd }) => (
   <S.World>
@@ -25,6 +27,10 @@ const World = ({ children, bind, space, zoom, zoomIn, zoomOut, blur, onTransitio
         {children}
       </animated.div>
     </S.Camera>
+
+    <S.WrapperAvatar>
+      <Avatar src={avatar} />
+    </S.WrapperAvatar>
 
     <S.Menu>
       <IconButton whatIcon="plus" onClick={zoomIn} />

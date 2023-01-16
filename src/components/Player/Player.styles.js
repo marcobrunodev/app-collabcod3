@@ -4,7 +4,6 @@ import gueio from '../../assets/images/gueio.png'
 const idle = keyframes`
   from {
     background-position: 0 0;
-    /* backround-position: x */
   }
   to {
     background-position: calc(var(--tile-width) * -4) 0;
@@ -25,7 +24,7 @@ const hasClick = ({ clicked }) => clicked && css`
 `
 
 const Player = styled.div`
-  --tile-height: 27px;
+  --tile-height: 27px; 
   --tile-width: 23px;
   --idle-steps: 4;
   --flipping-forward-steps: 14;
@@ -35,12 +34,13 @@ const Player = styled.div`
   background: url(${gueio}) no-repeat;
   background-position: 0 0;
   animation: ${idle} 600ms steps(var(--idle-steps)) infinite;
+  cursor: var(--cursor-pointer);
 
   position: absolute;
   top: calc(${({ y }) => `var(--tile) * ${y}`});
   left: calc(${({ x }) => `var(--tile) * ${x}`});
 
-  ${hasClick} 
+  ${hasClick};
 `
 
 export default {

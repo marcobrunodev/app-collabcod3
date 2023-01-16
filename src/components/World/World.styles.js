@@ -1,5 +1,6 @@
 import styled, { css, keyframes } from 'styled-components'
 import water0 from '../../assets/plaholder-active/water/water0.png'
+import pulse from '../../GlobalStyles/tools/animation/pulse'
 import waterSheet from './waterSheet'
 
 const steps = () => waterSheet.map((waterSheet, index) => css`${4.54 * index}% {
@@ -10,8 +11,26 @@ const seaAnimation = keyframes`
   ${steps()}
 `
 
+const WrapperAvatar = styled.div`
+  --scale: 1.5;
+
+  will-change: transform;
+  position: absolute;
+  top: var(--tile);
+  right: var(--tile);
+  transform: scale(var(--scale));
+  transition: transform 80ms ease-in-out;
+  
+  &:hover {
+    cursor: var(--cursor-pointer);
+    transform: scale(calc(var(--scale) + 0.1))
+  } 
+`
+
 const Menu = styled.nav`
-  position: sticky;
+  position: absolute;
+  bottom: var(--tile);
+  right: var(--tile);
   padding: 0 var(--tile);
   bottom: var(--tile);
   display: flex;
@@ -36,5 +55,6 @@ const World = styled.main`
 export default {
   World,
   Camera,
-  Menu
+  Menu,
+  WrapperAvatar
 }

@@ -1,18 +1,7 @@
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import input from '../../assets/plaholder-active/input.png'
 import inputFocus from '../../assets/plaholder-active/input-focus.png'
-
-const focus = keyframes`
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-`
+import pulse from '../../GlobalStyles/tools/animation/pulse'
 
 const InputText = styled.input`
   background: url(${input}) no-repeat;  
@@ -30,7 +19,7 @@ const InputText = styled.input`
 
   &:focus {
     background-image: url(${inputFocus});
-    animation: 100ms ease-in-out ${focus};
+    animation: 100ms ease-in-out ${pulse()};
     color: var(--color-text-input-focus);
   }
 `
