@@ -17,7 +17,7 @@ const Login = styled.main`
 
   & > ${Planet}.lava {
     top: 60vh;
-    left: 60vw
+    left: 60vw;
   }
 
   & > ${Planet}.baren {
